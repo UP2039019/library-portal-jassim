@@ -1,19 +1,158 @@
 # library-portal-jassim
 
-![image](https://cdn.discordapp.com/attachments/1055875845945819289/1131593949912502282/ashhadulislam_digital_library_futuristic_6217731e-8142-4085-84f7-3defe14bea25.png)
 
-A library portal app is a web application that allows users to access and search for books, CDs, and other resources that are available in the library. The app should be easy to use and should provide a seamless browsing and borrowing experience for the users. The following are some key aspects that should be included in the problem specification for a library portal app:
+# Flask Library
 
-## Problem Specification
-1.	User Interface: A user-friendly interface that enables users to search for books, CDs and other materials by different criteria, such as author, title, subject, and ISBN. The interface should also allow for users to browse and view books by different collections, genres, and authors.
+![img](https://raw.githubusercontent.com/UP2039019/library-portal-jassim/main/projeto/static/img/poster.jpg)
 
-2.	Authentication and Authorization: A secure authentication module to enable users to create accounts, log in, and manage their profiles. The app should support role-based access control, allowing administrators to manage user access to content.
+A simple library prototype using [Python](https://www.python.org/) and [Flask](https://flask.palletsprojects.com/en/2.1.x/).
 
-3.	Search Engine: A powerful search engine that enables users to search for books and other resources by title, author, subject, publisher, and other criteria. The search engine should allow for advanced search queries and should produce relevant search results.
+## Features
 
-4.	Book Checkout and Renewal: A seamless process for users to borrow or renew books online. The app should enable users to check the availability of books, request a hold, renew books, and receive reminders for overdue books.
+- Create Books
+- Search Books
+- Delete Books
+- Update Books
+- Review Books
+- User Registration & Login
+- Account Info & Update
 
-5.	Notifications: Notification features to keep users updated about new arrivals, upcoming events, and account status. The app should support email or SMS notifications for users based on their preferences. In this case as SMS is costly, we will try to create email services
+## TODO
 
-6.	Reports and Analytics: The app should provide administrators with detailed reports and analytics to measure the effectiveness of the system. These reports should include information about the number of users, books borrowed, overdue books, and popular genres.
+- Create a table for Authors.
+- Create the interface for Authors.
+
+## Installation
+
+### Clone the Repository
+
+```
+git clone https://github.com/UP2039019/library-portal-jassim.git
+```
+
+### Inside the Main Directory
+
+Create a Virtual Environment:
+
+```
+python -m venv myvenv
+```
+
+Activate the Virtual Environment:
+
+```
+source myvenv/bin/activate
+```
+
+Install Requirements:
+
+```
+pip install -r requirements.txt
+```
+
+Run the Application:
+
+```
+python run.py
+```
+
+Open your Web Browser and navigate to `http://127.0.0.1:5000/`.
+
+## Managing the Database
+
+### Inside the Main Directory
+
+Start a new [Python REPL](https://python.land/introduction-to-python/the-repl) in your terminal:
+
+```
+python
+```
+
+Creating a new database:
+
+```python
+>>> from projeto import db
+>>> db.create_all()
+```
+
+Initiating a new app context:
+
+```python
+>>> from projeto import create_app
+>>> app = create_app()
+>>> app.app_context().push()
+```
+
+Importing the database models:
+
+```python
+>>> from projeto.models import User, Book, Analysis
+```
+
+Inserting a new user in the database:
+
+```python
+user = User(
+    username='up2039019', 
+    email='up2039019@myport.ac.uk', 
+    image_file='default.jpg', 
+    password='a1234'
+)
+db.session.add(user)
+db.session.commit()
+```
+
+Querying for all users in the database:
+
+```python
+>>> users = User.query.all()
+>>> [user.email for user in users]
+```
+
+Search for a user with a specific ID:
+
+```python
+>>> User.query.get(1)
+```
+
+Order users by email ascending:
+
+```python
+>>> users = User.query.order_by(User.email.asc())
+>>> [user for user in users]
+```
+
+Search for a specific user in the database:
+
+```python
+>>> users = User.query.filter(User.username.contains('up2'))
+>>> [user for user in users]
+```
+
+Add a new book to the database with the current user:
+
+```python
+book = Book(
+    title='To Kill A Mockingbird', 
+    author='Harper Lee', 
+    genre='Philosophy', 
+    summary='Account Of a Lawyer', 
+    user=user
+)
+db.session.add(book)
+db.session.commit()
+```
+
+Create a review for the book:
+
+```python
+review = Analysis(
+    rating='Excellent', 
+    review='Amazing read. Unputdownable', 
+    book_id=book.id, 
+    user=user
+)
+db.session.add(review)
+db.session.commit()
+```
 
