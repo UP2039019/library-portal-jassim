@@ -1,0 +1,429 @@
+body {
+  background-color: black;
+  background-image: url(/static/img/dark.png);
+  color: #908d94;
+}
+
+.nav {
+  padding: 20px;
+  border: 1px solid white;
+  margin-top: 15px;
+  background-color: #222222; 
+}
+
+a {
+  color: white !important;
+}
+
+strong {
+  color: white;
+}
+
+b {
+  color: black;
+}
+
+.container {
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #2a2e2f;
+  margin-bottom: 20px;
+}
+
+.caixa-principal {
+  border: 1px solid white;
+  box-shadow: 5px 5px 5px #222222;
+  border-radius: 14px;
+}
+
+.titulo {
+  text-shadow: 2px 2px #222222, 0 0 4px black;
+  color: #908d94;
+  font-weight: bold;
+  font-style: oblique;
+}
+
+.list-group-item {
+  margin-bottom: 4px;
+  background-color: #908d94;
+}
+
+.list-group-item:hover {
+  background-color: black;
+  cursor: pointer;
+}
+
+hr { 
+  background-color: white;
+}
+
+.btn-primary {
+  margin-top: 10px;
+  background-color: gray !important;
+  border: 1px solid white !important;
+}
+
+.btn-primary:hover {
+  opacity: 0.85;
+}
+
+.btn-primary:focus {
+ box-shadow: 0 0 0 0.1rem rgb(255 255 255 / 50%) !important;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.1rem rgb(255 255 255 / 50%) !important;
+}
+
+.btn-success:hover {
+  cursor: pointer;
+}
+
+.btn-info {
+  margin: 0.25rem;
+}
+
+.btn-info:hover {
+  cursor: pointer;
+}
+
+.page-current {
+  background-color:#222222 !important;
+}
+
+.livro {
+  color: white;
+}
+
+.skull {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 8px;
+  width: 500px;
+  height: auto;
+  opacity: 0.7 !important;
+  border-radius: 10px !important;
+}
+
+.account-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+  height: 250px;
+  opacity: 0.7 !important;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.list-group-horizontal .list-group-item {
+  margin-bottom: 4px !important;
+}
+
+form {
+  padding: 20px;
+  border: 1px solid #908d94;
+  opacity: 0.8;
+  box-shadow: 5px 6px 6px #222222;
+  border-radius: 10px;
+  background-image: url(/static/img/dark.png);
+}
+
+input {
+  width: 100%;
+  padding: 6px 12px;
+  border-radius: 10px;
+}
+
+textarea {
+  resize: none;
+  display: block;
+  height: 160px !important;
+}
+
+.table {
+  color: #908d94 !important;
+}
+
+.modal-content {
+  background-color: #100109 !important;
+}
+
+.delete-form {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.close-modal {
+  color: white !important;
+}
+
+.table-icon {
+  margin-bottom: 0;
+}
+
+.icons {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  text-align: center;
+}
+
+.btn-warning {
+  background-color: #cc5c3d !important;
+  width: 100% !important;
+  border: 1px solid white !important
+}
+
+.btn-warning:hover {
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+i {
+  margin-right: 14px;
+  color: #908d94;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 25px #908d94;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #100109;
+  border-radius: 0.25rem;
+  border: 2px solid white;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #908d94;
+}
+
+.date {
+  font-size: 1.1rem;
+}
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: 1px solid #908d94;
+  opacity: 0.8;
+  box-shadow: 5px 6px 6px #222222;
+  border-radius: 10px;
+  background-image: url(/static/img/dark.png);
+}
+
+.genres > h2 {
+  text-align: center;
+}
+
+.image-genre {
+  border: 1px solid #dee2e6; 
+  margin: 15px 15px 15px 15px;
+  border-radius: 10px;
+  width: 165px;
+  height: 165px;
+}
+
+.image-genre:hover {
+  border: 1px solid #dee2e6; 
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.fa-user {
+  margin-right: 0;
+}
+
+.fa-envelope-square {
+  margin-right: 0;
+}
+
+.table {
+  background-image: url(/static/img/dark.png);
+}
+
+tr:hover {
+  background-color: black;
+}
+
+.review {
+  padding: 20px;
+  border: 1px solid #908d94;
+  opacity: 0.8;
+  box-shadow: 5px 6px 6px #222222;
+  border-radius: 10px;
+  background-image: url(/static/img/dark.png);
+}
+
+.delete-review {
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  opacity: 1;
+}
+
+.delete-review > input {
+  width: 80px;
+  margin-bottom: 10px;
+  margin-left: 8px;
+  float: right;
+}
+
+.delete-message {
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  opacity: 1;  
+}
+
+.delete-message > input {
+  width: 80px;
+  margin-bottom: 10px;
+  margin-left: 8px; 
+}
+
+.update-review {
+  width: 80px;
+  margin-bottom: 10px;
+  margin-right: 8px;
+  float: left;
+}
+
+.message-btn, .delete-btn {
+  width: 95px !important;
+}
+
+.btn-light:hover {
+  opacity: 0.9;
+}
+
+.btn-light:focus {
+  box-shadow: 0 0 0 0.2rem rgb(94 18 224 / 50%) !important;
+}
+
+.avatar-review {
+  width: 100px;
+  height: 100px;
+  opacity: 0.7 !important;
+  background-color: #fff;
+  border: 3px solid white;
+  margin-bottom: 7px;
+  border-radius: 50%;
+  margin-top: 3px;
+}
+
+#tableAllBooks,
+#tableAllAuthors,
+#tableAllGenres,
+#tableTotalReviews {
+  display: none;
+}
+
+#buttonAllBooks,
+#buttonAllAuthors,
+#buttonAllGenres,
+#buttonTotalReviews {
+  width: 150px;
+}
+
+@media only screen and (max-width: 768px) {
+  .skull {
+    width: 80%;
+  }
+  .movie-title {
+    font-size: 1.6rem;
+  }
+  .table-date {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 534px) {
+  .image-genre {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+@media only screen and (max-width: 463px) {
+  .image-genre {
+    width: 100px;
+    height: 100px;
+  }
+  .table-genre {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 403px) {
+  .image-genre {
+    width: 200px;
+    height: 200px;
+  }
+  .account-img {
+    width: 80%;
+    height: auto;
+  }
+  .table {
+    width: 75% !important;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .text-secondary {
+    font-size: 1.2rem;
+  }  
+  .account-heading {
+    font-size: 1.2rem;   
+  }
+  .delete-review > input, .update-review {
+    float: none;
+    margin: 0px 0px 10px 0px;
+  }
+}
+
+@media only screen and (max-width: 343px) {
+  .table-author {
+    display: none;
+  }  
+  .skull {
+    width: 97%;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 329px) {
+  .image-genre {
+    width: 120px;
+    height: 120px;
+  }
+  .list-group-item > strong {
+    font-size: 1rem;
+  }
+  .titulo {
+    font-size: 1.8rem;
+  }
+  .table {
+    width: 80% !important;
+  }
+  .form-group > h2 {
+    font-size: 1.4rem;    
+  }
+}

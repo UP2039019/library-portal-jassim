@@ -1,0 +1,175 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center titulo">Account Information</h1>
+    <br>
+    <img class="rounded-circle account-img mb-2 img-thumbnail" src="{{ image_file }}">
+    <br>
+    <div class="content-section">
+        <div class="media">	    
+            <div class="media-body text-center">
+                <h2 class="account-heading"><i class="fas fa-user"></i> {{ current_user.username }}</h2>
+                <h4 class="text-secondary"><i class="fas fa-envelope-square"></i> {{ current_user.email }}</h4>
+                <br>
+                <button id="buttonAllBooks" class="btn btn-dark btn-sm mb-3">Show All Books</button>	      
+                <table id="tableAllBooks" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th><h2 class="table-icon"><i title="Title" class="fas fa-book"></i></h2></th>
+                            <th class="table-author"><h2 class="table-icon"><i title="Author" class="fas fa-pencil-alt"></i></h2></th>
+                            <th class="table-genre"><h2 class="table-icon"><i title="Genre" class="fas fa-hamsa"></i></h2></th>
+                            <th class="table-date"><h2 class="table-icon"><i title="Date Posted" class="far fa-calendar-alt"></i></h2></th>
+                            <th class="table-date"><h2 class="table-icon"><i title="Reviews" class="far fa-eye"></i></h2></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for book in books %}
+                        <tr>
+                            <td><a href="{{ url_for('books.book', book_id=book[0]) }}">{{ book[2] }}</a></td>
+                            <td class="table-author"><a href="{{ url_for('books.author', author=book[1]) }}">{{ book[1] }}</a></td>
+                            <td class="table-genre"><a href="{{ url_for('books.genre', genre=book[3]) }}">{{ book[3] }}</a></td>
+                            <td class="table-date">{{ book[4].strftime('%Y-%m-%d') }}</td>
+                            <td class="table-date">{{ book[5] }}</td>
+                        </tr>
+                        {% endfor %}	
+                   </tbody>
+                </table>
+                <br>
+                <button id="buttonAllAuthors" class="btn btn-dark btn-sm mb-3">Show All Authors</button>   
+                <table id="tableAllAuthors" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th><h2 class="table-icon"><i title="Author" class="fas fa-pencil-alt"></i></h2></th>
+                            <th><h2 class="table-icon"><i title="Number of Books" class="fas fa-infinity"></i></h2></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for author, number in books_author.items() %}
+                        <tr>
+                            <td><a href="{{ url_for('books.author', author=author) }}">{{ author }}</a></td>
+                            <td><strong>{{ number }}</strong></td>
+                        </tr>
+                        {% endfor %}    
+                   </tbody>
+                </table>
+                <br>
+                <button id="buttonAllGenres" class="btn btn-dark btn-sm mb-3 mt-0">Show All Genres</button>   
+                <table id="tableAllGenres" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th><h2 class="table-icon"><i title="Genre" class="fas fa-hamsa"></i></h2></th>
+                            <th><h2 class="table-icon"><i title="Number of Books" class="fas fa-infinity"></i></h2></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for genre, number in books_genre.items() %}
+                        <tr>
+                            <td><a href="{{ url_for('books.genre', genre=genre) }}">{{ genre }}</a></td>
+                            <td><strong>{{ number }}</strong></td>
+                        </tr>
+                        {% endfor %} 
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><strong>{{ total_books }}</strong></td>
+                        </tr>    
+                   </tbody>
+                </table>
+                <br>
+                <button id="buttonTotalReviews" class="btn btn-dark btn-sm mb-3">Show Total Reviews</button>   
+                <table id="tableTotalReviews" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th><h2 class="table-icon"><i title="Reviews" class="fas fa-eye"></i></h2></th>
+                            <th><h2 class="table-icon"><i title="User's Reviews" class="fas fa-infinity"></i></h2></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><strong>{{ total_analysis }}</strong></td>
+                        </tr>    
+                   </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+    <form method="POST" action="" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Update Account Info</legend>
+            <div class="form-group">
+                {{ form.username.label(class="form-control-label") }}
+
+                <!-- Seção que faz a validação dos formulários -->
+                {% if form.username.errors %}
+                    {{ form.username(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.username.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.username(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group mb-0">
+                {{ form.email.label(class="form-control-label") }}
+
+                <!-- Seção que faz a validação dos formulários -->
+                {% if form.email.errors %}
+                    {{ form.email(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <br>
+            <div class="form-group">
+                <div class="custom-file">
+                    {{ form.picture(class="custom-file-input") }}
+                    {{ form.picture.label(class="custom-file-label") }}
+                </div>
+                {% if form.picture.errors %}
+                    {% for error in form.picture.errors %}
+                        <span class="text-danger">{{ error }}</span></br>
+                    {% endfor %}
+                {% endif %}	
+            </div>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+            <a href="{{ url_for('users.account') }}" class="btn btn-warning mt-0">Cancel</a>    
+        </fieldset>
+    </form>
+</div> 
+{% endblock content %}
+
+{% block script %}
+<script type="text/javascript">
+    $(".custom-file-input").on("change", function() {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+
+    $(document).ready(function(){
+      $("#buttonAllBooks").click(function(){
+        $("#tableAllBooks").toggle();
+      });
+      $("#buttonAllAuthors").click(function(){
+        $("#tableAllAuthors").toggle();
+      });
+      $("#buttonAllGenres").click(function(){
+        $("#tableAllGenres").toggle();
+      });
+      $("#buttonTotalReviews").click(function(){
+        $("#tableTotalReviews").toggle();
+      });
+    });
+</script>
+{% endblock script %}
